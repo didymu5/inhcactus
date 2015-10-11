@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="INHERITANCE magazine is a nonprofit ministry of INHERITANCE media, which serves to connect Asian American Christians to one another and to the global community.">
+		
+		<title>INHERITANCE</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+
+		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6556354/788968/css/fonts.css" />
+		<link href="/styles/site.css" rel="stylesheet">
+
+		<meta property="og:title" content="">
+		<meta property="og:site_name" content="Inheritance Magazine">
+		<meta property="og:url" content="{{ CURRENT_PAGE.absolute_final_url }}">
+		<meta property="og:description" content="">
+		<meta property="og:type" content="article">
+		<meta property="og:image" content="">
+
+		<meta property="article:author" content="https://www.facebook.com/INHERITANCEmag">
+		<meta property="article:publisher" content="https://www.facebook.com/INHERITANCEmag">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@inheritancemag">
+		<meta name="twitter:title" content="">
+		<meta name="twitter:description" content="">
+		<meta name="twitter:creator" content="@inheritancemag">
+		<meta name="twitter:image" content="">
+
+		<script async="true">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-18410506-1', 'auto');
+		ga('send', 'pageview');
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
+		<![endif]-->
+		
+	</head>
+
+	<body>
+		<header id="header" class="global">
+			<div id="inh-tagline"><p>The Intersection of <em>Faith</em> and <em>Culture</em></p></div>
+			
+			<a href="/" class="inh-logo-main"><img src="http://res.cloudinary.com/inhmag/image/upload/v1427600150/inheritance-solo_vhknr6.png" alt="Inheritance Magazine" class="inh-logo img-responsive"></a>
+				
+				<nav class="navbar">
+			
+						<ul class="navbar-list">
+							
+							<li class="navbar-item" >
+								<a class="navbar-link" href="/issues">Issues</a>
+							</li>
+							<li class="navbar-item" >
+								<a class="navbar-link" href="/subscribe">Subscribe</a>
+							</li>
+							<li class="navbar-item" >
+								<a class="navbar-link" href="http://give.inheritancemag.com">Give</a>
+							</li>
+							<li class="navbar-item" >
+								<a class="navbar-link" href="/contact">Contact</a>
+							</li>
+						</ul>
+			
+				</nav>
+		</header>
+
+<div id="issue-banner" class="full-width dark" style="background-image: url(http://res.cloudinary.com/inhmag/image/upload/v1428681616/metamorphosis-header_uxl6ig.jpg);">
+	<div class="issue-banner-title">
+		<div id="sillywrp">
+			<span class="issue-number-date">Issue #29 | May 2015</span>
+			<h2>Do Good</h2>
+		</div>
+	</div>
+</div>
+
+	<article class="article-parent">
+		
+		<header>
+			<h1>{{title}}</h1>
+			<h2>{{sub_title}}</h2>
+			<h5>{{by_line}}</h5>
+		</header>
+		<div class="article-section post">
+			{% block article %}
+			{% endblock %}
+		</div>
+		<div class="article-info">
+			{% block contributors%}
+			{% endblock %}
+		</div>
+		
+	</article>
+	
+	
+
+	
+	
+	</body>
+
+</html>
