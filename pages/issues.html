@@ -1,2 +1,15 @@
-{% extends "home.html" %}
+stuff
+<hr>
+{% block content %}
 
+list the issues:
+	{% for issue in issues %}
+		{{ issue.issue_title }} <br>
+		{{ issue.issue_number }} <br>
+		{{ issue.banner_image }} <br>
+		{{ issue.issue_link }}
+		{{ issue.thumb_image }}
+
+	{% endfor %}
+
+{% endblock content %}
