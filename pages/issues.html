@@ -12,4 +12,18 @@ list the issues:
 
 	{% endfor %}
 
+<hr>
+	{% regroup articles by issue_number as article_list %}
+	{% for article in article_list %}
+		{{ article.grouper }}
+		{{article}}
+		{% for item in article.list %}
+		{{article.title}} {{article.sub_title}} {{article.by_line}} {{article.headliner}} {{article.issue_number}}<br>
+		{% endfor %}
+	{% endfor %}
+
+	<hr>
+	
+
+
 {% endblock content %}

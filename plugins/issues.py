@@ -42,12 +42,10 @@ def preBuildPage(site, page, context, data):
     """
     Add list of issues for every page context
     """
-    context['manna'] = 'awesome stuff'
     context['issues'] = ISSUES
-    # context.update(ISSUES)
 
     for issue in ISSUES:
         if  issue["path"] == page.path:
                 context.update(issue)
-
+    
     return context, data
