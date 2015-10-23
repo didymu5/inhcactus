@@ -16,7 +16,7 @@ def preBuild(site):
     global ARTICLES_ISSUE
     global ARTICLES_CURRENT
     #\/+[0-9]+\/
-    CURRENT_ISSUE = site.config.get('current_issue')    
+
     def find(name):
         c = article.context()
         if not name in c:
@@ -25,33 +25,43 @@ def preBuild(site):
         return c.get(name, '')
     
     #get list of current_issue
-    logging.info('current issue is %s' % CURRENT_ISSUE) 
+
     for article in site.pages():
         # print re.findall('\/+[0-9]+\/', article.path)
         # get current issue list of article
         if len(re.findall('\/+[0-9]+\/', article.path)):
-            if str(CURRENT_ISSUE) in article.path:
-                
-                currentArticleContext = {}
-                currentArticleContext['title'] = find('title')
-                currentArticleContext['sub_title'] = find('sub_title')
-                currentArticleContext['by_line'] = find('by_line')
-                currentArticleContext['publish_date'] = find('publish_date')
-                currentArticleContext['headliner'] = find('headliner')
-                currentArticleContext['issue_number'] = find('issue_number')
-                currentArticleContext['article_thumb'] = find('article_thumb')
-                currentArticleContext['order_by'] = find('order_by')
 
-                ARTICLES_CURRENT.append(currentArticleContext)
-            
+            allArticleContext = {}
+            allArticleContext['title'] = find('title')
+            allArticleContext['sub_title'] = find('sub_title')
+            allArticleContext['by_line'] = find('by_line')
+            allArticleContext['publish_date'] = find('publish_date')
+            allArticleContext['headliner'] = find('headliner')
+            allArticleContext['issue_number'] = int(re.findall('[0-9][0-9]', article.path)[0])
+            allArticleContext['article_thumb'] = find('article_thumb')
+            allArticleContext['order_by'] = find('order_by')
+            ARTICLES_CURRENT.append(allArticleContext)
+
+
+    sorted(ARTICLES_CURRENT, key=lambda allArticleContext: allArticleContext['order_by'])
+
+    def filterCurrentIssueArticle():
+
+        for article in ARTICLES_CURRENT:
+            # print article['title'], article['order_by']
+            print 'boo!'
+
+    filterCurrentIssueArticle()
 
 def preBuildPage(site, page, context, data):
     """
     Add list of articles for every page context
     """
+    CURRENT_ISSUE = site.config.get('current_issue')
+    print CURRENT_ISSUE
+    context['current_issue'] = CURRENT_ISSUE
     context['articles'] = ARTICLES_CURRENT
     for article in ARTICLES_CURRENT:
         context.update(article)
-    
-    print context
+
     return context, data

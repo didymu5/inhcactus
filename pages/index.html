@@ -2,4 +2,16 @@
 
 {% block body %}
 
+
+{% for article in articles reversed %}
+
+		{% if article.issue_number == current_issue %}
+
+			------------
+			{{ article.order_by }} - {{article.title}} {{article.sub_title}} {{article.by_line}} {{article.headliner}} {{article.issue_number}}<hr>
+		{% endif %}
+
+	{% endfor %}
+
+
 {% endblock %}

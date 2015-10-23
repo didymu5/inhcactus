@@ -45,7 +45,7 @@ def preBuildPage(site, page, context, data):
     context['issues'] = ISSUES
 
     for issue in ISSUES:
-        if  issue["path"] == page.path:
+        if issue["path"] == page.path:
                 context.update(issue)
-    
+
     return context, data
