@@ -1,0 +1,125 @@
+header.global {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+    #inh-tagline {
+        @include whitneyFont(normal, normal, screensmart);
+        font-size: .75em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #000;
+        border-top: 1px solid #000;
+        margin-top: 25px;
+        p {
+            text-align: center;
+            background: #fff;
+            padding-left: 0px;
+            padding-right: 0px;
+            margin-top: -13px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 400px;
+        }
+        em {
+            font-style: normal;
+            font-weight: bold;
+        }
+    }
+    .inh-logo-main {
+        @extend .u-cf;
+        margin-right: auto;
+        margin-left: auto;
+        img.inh-logo {
+            max-width: 26rem;
+            margin-bottom: 1rem;
+            margin-top: .5rem;
+            @media only screen and (max-width: $midSizeWidth) {
+                max-width: 20rem;
+            }
+            @media only screen and (max-width: $mobileLandscapeWidth) {
+                max-width: 15rem;
+                margin-top: 1px;
+            }
+        }
+    }
+    .navbar + .docs-section {
+        border-top-width: 0;
+    }
+    .navbar, .navbar-spacer {
+        text-align: center;
+        display: block;
+        height: 2.5rem;
+        background: #fff;
+        z-index: 99;
+        margin-right: auto;
+        margin-left: auto;
+        .navbar-list {
+            @extend .u-cf;
+            list-style: none;
+            margin-top: 15px;
+            margin-bottom: 0;
+            margin-right: auto;
+            margin-left: auto;
+            .navbar-item {
+                position: relative;
+                float: left;
+                margin-bottom: 0;
+            }
+            .navbar-link {
+                @include whitneyFont(600, normal, condense);
+                text-transform: uppercase;
+                font-size: 1rem;
+                letter-spacing: .2rem;
+                margin: 0 3rem;
+                text-decoration: none;
+                line-height: 2.5rem;
+                color: #222;
+            }
+        }
+        @media only screen and (max-width: $midSizeWidth) {
+            // width: 6rem !important;
+            #inh-tagline {
+                font-size: 14px !important;
+            }
+            .navbar-list {
+                .navbar-link {
+                    font-size: 12px;
+                    margin: 0 1rem;
+                }
+            }
+            #inh-tagline {
+                p {
+                    width: 100% !important;
+                }
+            }
+        }
+        @media only screen and (max-width: $mobileLandscapeWidth) {
+            #inh-tagline {
+                p {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    .navbar-spacer {
+        display: none;
+    }
+    .navbar > .container {
+        width: 100%;
+    }
+    .navbar-link.active {
+        color: #33C3F0;
+    }
+    .has-docked-nav .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .has-docked-nav .navbar-spacer {
+        display: block;
+    }
+    /* Re-overiding the width 100% declaration to match size of % based container */
+    .has-docked-nav .navbar > .container {
+        width: 80%;
+    }
+}

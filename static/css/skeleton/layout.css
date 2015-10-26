@@ -1,0 +1,24 @@
+/**
+ * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid
+ * originally authored by Dave Gamache. This translation offers
+ * mixins that support fluid and as well as fixed grids to supplement
+ * the work that Dave Gamache has done.
+ * @author Dennis Thompson <http://www.atomicpages.net>
+ * @copyright Copyright (c) 2013 AtomicPages LLC
+ * @license MIT
+ * @version 1.6.3
+ */
+/* SITE STYLES
+ * ------------------------------------------------ */
+/* Add site styles here such as a { color: #000; } */
+/* PAGE STYLES
+ * ------------------------------------------------ */
+/* Add page styles here such as .home { background: rgba(0, 0, 0, 0.4); } */
+/* MEDIA QUERIES
+ * ------------------------------------------------ */
+/* Otherwise known as custom responsive code! Write it here! */
+/* Smaller than standard 1280 (devices and browsers) */
+/* Tablet Portrait size to standard 1280 (devices and browsers) */
+/* All Mobile Sizes (devices and browser) */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
