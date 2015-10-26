@@ -7,10 +7,20 @@
 
 		{% if article.issue_number == current_issue %}
 
-			------------
-			{{ article.order_by }} - {{article.title}} {{article.sub_title}} {{article.by_line}} {{article.headliner}} {{article.issue_number}}<hr>
-		{% endif %}
 
+		<div class="article-card">
+			<a href="{{article.article_path}}">
+				<img src="{{article.article_thumb}}" class="article-img" alt="Thumb nail of {{article.title}} ">
+			</a>
+			<h3><a href="{{article.article_path}}">{{article.title}}</a></h3>
+			{{article.by_line}}
+
+			<div class="article-brief">
+				{{article.headliner}}
+			</div>
+		</div>
+		{% endif %}
+		
 	{% endfor %}
 
 
