@@ -27,41 +27,32 @@ def preBuild(site):
     #get list of current_issue
 
     for article in site.pages():
-        # print re.findall('\/+[0-9]+\/', article.path)
         # get current issue list of article
         if len(re.findall('\/+[0-9]+\/', article.path)):
-
+            issueNum = re.findall('[0-9][0-9]', article.path)[0]
             allArticleContext = {}
             allArticleContext['title'] = find('title')
             allArticleContext['sub_title'] = find('sub_title')
             allArticleContext['by_line'] = find('by_line')
             allArticleContext['publish_date'] = find('publish_date')
             allArticleContext['headliner'] = find('headliner')
-            allArticleContext['issue_number'] = int(re.findall('[0-9][0-9]', article.path)[0])
+            allArticleContext['issue_number'] = int(issueNum)
+            allArticleContext['issue_url'] = '/issues/'+issueNum+'/'
             allArticleContext['article_thumb'] = find('article_thumb')
             allArticleContext['order_by'] = find('order_by')
+            allArticleContext['article_path'] = article.path.split('.html')[0]
+
             ARTICLES_CURRENT.append(allArticleContext)
 
 
+
     sorted(ARTICLES_CURRENT, key=lambda allArticleContext: allArticleContext['order_by'])
-
-    def filterCurrentIssueArticle():
-
-        for article in ARTICLES_CURRENT:
-            # print article['title'], article['order_by']
-            print 'boo!'
-
-    filterCurrentIssueArticle()
 
 def preBuildPage(site, page, context, data):
     """
     Add list of articles for every page context
     """
     CURRENT_ISSUE = site.config.get('current_issue')
-    print CURRENT_ISSUE
     context['current_issue'] = CURRENT_ISSUE
     context['articles'] = ARTICLES_CURRENT
-    for article in ARTICLES_CURRENT:
-        context.update(article)
-
     return context, data

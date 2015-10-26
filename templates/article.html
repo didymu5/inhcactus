@@ -12,7 +12,7 @@
 		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 
 		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6556354/788968/css/fonts.css" />
-		<link href="/styles/site.css" rel="stylesheet">
+		<link href="{% static '/static/css/site.css' %}" rel="stylesheet">
 
 		<meta property="og:title" content="">
 		<meta property="og:site_name" content="Inheritance Magazine">
@@ -49,7 +49,7 @@
 		
 	</head>
 
-	<body>
+	<body class="isArticle no-mask">
 		<header id="header" class="global">
 			<div id="inh-tagline"><p>The Intersection of <em>Faith</em> and <em>Culture</em></p></div>
 			
@@ -76,14 +76,22 @@
 				</nav>
 		</header>
 
-<div id="issue-banner" class="full-width dark" style="background-image: url(http://res.cloudinary.com/inhmag/image/upload/v1428681616/metamorphosis-header_uxl6ig.jpg);">
-	<div class="issue-banner-title">
-		<div id="sillywrp">
-			<span class="issue-number-date">Issue #29 | May 2015</span>
-			<h2>Do Good</h2>
+
+{% for issue in issues %}
+	{% if issue.issue_number == issue_number %}
+		<div id="issue-banner" class="full-width dark" style="background-image: url(http://res.cloudinary.com/inhmag/image/upload/v1428681616/metamorphosis-header_uxl6ig.jpg);">
+			<div class="issue-banner-title">
+				<div id="sillywrp">
+						 <h2><a href="{{issue_url}}">&lt; {{issue.issue_title}}/a></h2>
+				</div>
+
+			</div>
 		</div>
-	</div>
-</div>
+	{% endif %}
+{% endfor %}
+
+
+
 
 	<article class="article-parent">
 		

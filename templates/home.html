@@ -13,7 +13,7 @@
 		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 
 		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6556354/788968/css/fonts.css" />
-		<link href="/styles/site.css" rel="stylesheet">
+		<link href="{% static '/static/css/site.css' %}" rel="stylesheet">
 
 		<meta property="og:title" content="">
 		<meta property="og:site_name" content="Inheritance Magazine">
@@ -76,21 +76,49 @@
 			
 				</nav>
 		</header>
-
-<div id="issue-banner" class="full-width dark" style="background-image: url(http://res.cloudinary.com/inhmag/image/upload/v1428681616/metamorphosis-header_uxl6ig.jpg);">
-	<div class="issue-banner-title">
-		<div id="sillywrp">
-			<span class="issue-number-date">Issue #29 | May 2015</span>
-			<h2>Do Good</h2>
+{% for issue in issues %}
+	{% ifequal issue.issue_number current_issue %}
+		<div id="issue-banner" class="full-width dark" style="background-image: url({{issue.banner_image}});">
+			<div class="issue-banner-title">
+				<div id="sillywrp">
+					<span class="issue-number-date">Issue #{{issue.issue_number}} | {{issue.publish_date|date:'M Y'}}</span>
+					<h2>{{issue.issue_title}}</h2>
+				</div>
+			</div>
 		</div>
+	{% endifequal %}
+{% endfor %}
+
+<div class="container">
+	<div class="row">
+		{% block body %}
+		{% endblock %}
 	</div>
 </div>
 
-
-{{ CURRENT_ISSUE }}
-----
-	{% block body %}
-	{% endblock %}
+<div id="footer" class="container full-width">
+	<div class="container">
+		<div class="eight columns">
+			<ul class="footerlinks">
+				<li>
+					<a href="/about">about</a>
+				</li>
+				<li>
+					<a href="http://give.inheritancemag.com">give</a>
+				</li>
+				<li>
+					<a href="/subscribe">subscribe</a>
+				</li>
+				<li>
+					<a href="/contact">contact</a>
+				</li>
+			</ul>
+		</div>
+		<div class="eight columns">
+			<p>©2009-2015 INHERITANCE media</p>
+		</div>
+	</div>
+</div>
 
 
 	</body>

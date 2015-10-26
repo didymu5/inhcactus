@@ -25,17 +25,17 @@ def preBuild(site):
         if issue.context().get('issue_title'):
             issueContext = {}
             issueContext['issue_title'] = find('issue_title')
-            issueContext['issue_number'] = find('issue_number')
+            issueContext['issue_number'] = int(find('issue_number'))
             issueContext['path'] = issue.path
             try:
-                issueContext['publishDate'] = datetime.datetime.strptime(find('publish_date'), '%m-%d-%y')
+                issueContext['publish_date'] = datetime.datetime.strptime(find('publish_date'), '%M-%d-%y')
             except Exception, e:
                 logging.warning("Date format not correct for page %s, should be m-d-yy\n%s" % (page.path, e))
             issueContext['banner_image'] = find('banner_image')
             issueContext['issue_link'] = find('issue_link')
             issueContext['banner_image_small'] = find('banner_image_small')
             ISSUES.append(issueContext)
-            logging.info("getting issue # %s '%s'" % (issueContext['issue_number'], issueContext['issue_title']))
+            # logging.info("getting issue # %s '%s'" % (issueContext['issue_number'], issueContext['issue_title']))
 
 
 def preBuildPage(site, page, context, data):
