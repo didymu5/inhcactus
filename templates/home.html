@@ -77,7 +77,7 @@
 				</nav>
 		</header>
 {% for issue in issues %}
-	{% ifequal issue.issue_number current_issue %}
+	{% ifequal issue.issue_number current_issue %}  
 		<div id="issue-banner" class="full-width dark" style="background-image: url({{issue.banner_image}});">
 			<div class="issue-banner-title">
 				<div id="sillywrp">
@@ -88,7 +88,7 @@
 		</div>
 	{% endifequal %}
 {% endfor %}
-
+	
 <div class="container">
 	<div class="row">
 		{% block body %}

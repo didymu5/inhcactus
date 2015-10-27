@@ -16,7 +16,7 @@ def preBuild(site):
     global ARTICLES_ISSUE
     global ARTICLES_CURRENT
     #\/+[0-9]+\/
-
+    
     def find(name):
         c = article.context()
         if not name in c:
@@ -25,7 +25,7 @@ def preBuild(site):
         return c.get(name, '')
     
     #get list of current_issue
-
+    
     for article in site.pages():
         # get current issue list of article
         if len(re.findall('\/+[0-9]+\/', article.path)):
@@ -40,12 +40,12 @@ def preBuild(site):
             allArticleContext['issue_url'] = '/issues/'+issueNum+'/'
             allArticleContext['article_thumb'] = find('article_thumb')
             allArticleContext['order_by'] = find('order_by')
-            allArticleContext['article_path'] = article.path.split('.html')[0]
+            allArticleContext['article_path'] = article.path.split('.html')[0] 
 
             ARTICLES_CURRENT.append(allArticleContext)
 
-
-
+        
+    
     sorted(ARTICLES_CURRENT, key=lambda allArticleContext: allArticleContext['order_by'])
 
 def preBuildPage(site, page, context, data):
