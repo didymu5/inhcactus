@@ -239,7 +239,6 @@
     }
     //create a mixin to adjust layout
     @mixin readingColumn($setWidth) {
-        // @extend .u-cf;   
         margin-right: auto;
         margin-left: auto;
         max-width: $setWidth;
