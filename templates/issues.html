@@ -6,7 +6,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="description" content="INHERITANCE magazine is a nonprofit ministry of INHERITANCE media, which serves to connect Asian American Christians to one another and to the global community.">
 		<link rel="canonical" href="{{ CURRENT_PAGE.absolute_final_url }}" />
-		
 		<title>INHERITANCE</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
@@ -18,7 +17,7 @@
 		<meta property="og:title" content="">
 		<meta property="og:site_name" content="Inheritance Magazine">
 		<meta property="og:url" content="{{ CURRENT_PAGE.absolute_final_url }}">
-		<meta property="og:description" content="">
+		<meta property="og:description" content="{{headliner}}">
 		<meta property="og:type" content="article">
 		<meta property="og:image" content="">
 
@@ -27,7 +26,7 @@
 
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@inheritancemag">
-		<meta name="twitter:title" content="">
+		<meta name="twitter:title" content="{{title}}">
 		<meta name="twitter:description" content="">
 		<meta name="twitter:creator" content="@inheritancemag">
 		<meta name="twitter:image" content="">
@@ -50,7 +49,7 @@
 		
 	</head>
 
-	<body>
+	<body class="isArticle no-mask">
 		<header id="header" class="global">
 			<div id="inh-tagline"><p>The Intersection of <em>Faith</em> and <em>Culture</em></p></div>
 			
@@ -76,51 +75,12 @@
 			
 				</nav>
 		</header>
-{% for issue in issues %} 
-	{% if current_issue == issue.issue_number %}  
-		<div id="issue-banner" class="full-width dark" style="background-image: url({{issue.banner_image}});">
-			<div class="issue-banner-title">
-				<div id="sillywrp">
-					<span class="issue-number-date">Issue #{{issue.issue_number}} | {{issue.publish_date|date:'M Y'}}</span>
-					<h2>{{issue.issue_title}}</h2>
-				</div>
-			</div>
+		<div class="issues-list">
+			{% block content %}
+			
+		{% endblock content %}
 		</div>
-	{% endif %}
-{% endfor %}
-	
-<div class="container">
-	<div class="row">
-		{% block body %}
-		{% endblock %}
-	</div>
-</div>
-
-<div id="footer" class="container full-width">
-	<div class="container">
-		<div class="eight columns">
-			<ul class="footerlinks">
-				<li>
-					<a href="/about">about</a>
-				</li>
-				<li>
-					<a href="http://give.inheritancemag.com">give</a>
-				</li>
-				<li>
-					<a href="/subscribe">subscribe</a>
-				</li>
-				<li>
-					<a href="/contact">contact</a>
-				</li>
-			</ul>
-		</div>
-		<div class="eight columns">
-			<p>©2009-2015 INHERITANCE media</p>
-		</div>
-	</div>
-</div>
-
-
+		
 	</body>
 
 </html>

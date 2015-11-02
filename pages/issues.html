@@ -1,17 +1,19 @@
-stuff
-<hr>
+{% extends "issues.html" %}
+
 {% block content %}
-
-list the issues:
 	{% for issue in issues %}
-		{{ issue.issue_title }} <br>
-		{{ issue.issue_number }} <br>
-		{{ issue.banner_image }} <br>
-		{{ issue.issue_link }}
-		{{ issue.thumb_image }}
-
+	<div class="issue-list-each">
+		<p>
+			<a href="{{ issue.path }}">
+				<img src="{{ issue.banner_image_small }}" class="magazine-image">
+			</a>
+		</p>
+		<p>
+			#{{ issue.issue_number }} 	
+			<a href="{{ issue.path }}" title="ISSUE - {{ issue.issue_title }}">
+				{{ issue.issue_title }}
+			</a>
+		</p>
+	</div>
 	{% endfor %}
-
-<hr>
-
 {% endblock content %}

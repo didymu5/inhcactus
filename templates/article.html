@@ -17,7 +17,7 @@
 		<meta property="og:title" content="">
 		<meta property="og:site_name" content="Inheritance Magazine">
 		<meta property="og:url" content="{{ CURRENT_PAGE.absolute_final_url }}">
-		<meta property="og:description" content="">
+		<meta property="og:description" content="{{headliner}}">
 		<meta property="og:type" content="article">
 		<meta property="og:image" content="">
 
@@ -26,7 +26,7 @@
 
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@inheritancemag">
-		<meta name="twitter:title" content="">
+		<meta name="twitter:title" content="{{title}}">
 		<meta name="twitter:description" content="">
 		<meta name="twitter:creator" content="@inheritancemag">
 		<meta name="twitter:image" content="">
@@ -76,21 +76,18 @@
 				</nav>
 		</header>
 
-
 {% for issue in issues %}
 	{% if issue.issue_number == issue_number %}
 		<div id="issue-banner" class="full-width dark" style="background-image: url(http://res.cloudinary.com/inhmag/image/upload/v1428681616/metamorphosis-header_uxl6ig.jpg);">
 			<div class="issue-banner-title">
 				<div id="sillywrp">
-						 <h2><a href="{{issue_url}}">&lt; {{issue.issue_title}}/a></h2>
+						 <h2><a href="{{issue_url}}">&lt; {{issue.issue_title}}</a></h2>
 				</div>
 
 			</div>
 		</div>
 	{% endif %}
 {% endfor %}
-
-
 
 
 	<article class="article-parent">

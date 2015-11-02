@@ -23,9 +23,11 @@ def preBuild(site):
 
     for issue in site.pages():
         if issue.context().get('issue_title'):
+                
             issueContext = {}
             issueContext['issue_title'] = find('issue_title')
-            issueContext['issue_number'] = int(find('issue_number'))
+            issueContext['issue_number'] = find('issue_number')
+
             issueContext['path'] = issue.path
             try:
                 issueContext['publish_date'] = datetime.datetime.strptime(find('publish_date'), '%M-%d-%y')

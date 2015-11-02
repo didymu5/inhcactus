@@ -40,8 +40,7 @@ def preBuild(site):
             allArticleContext['issue_url'] = '/issues/'+issueNum+'/'
             allArticleContext['article_thumb'] = find('article_thumb')
             allArticleContext['order_by'] = find('order_by')
-            allArticleContext['article_path'] = article.path.split('.html')[0] 
-
+            allArticleContext['article_path'] = article.path.split('.html')[0]
             ARTICLES_CURRENT.append(allArticleContext)
 
         
@@ -53,6 +52,6 @@ def preBuildPage(site, page, context, data):
     Add list of articles for every page context
     """
     CURRENT_ISSUE = site.config.get('current_issue')
-    context['current_issue'] = CURRENT_ISSUE
+    context['current_issue'] = int(CURRENT_ISSUE)
     context['articles'] = ARTICLES_CURRENT
     return context, data
